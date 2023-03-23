@@ -1,6 +1,6 @@
 import { FiMenu } from 'react-icons/fi'
 import { MdClose } from 'react-icons/md'
-import { Fragment, useState } from 'react'
+import { useState } from 'react'
 import logo from '../assets/logo.jpg'
 export default function Header() {
   const [isOpen, setisOpen] = useState(false)
@@ -12,41 +12,43 @@ export default function Header() {
   const menuList = ['Blogs', 'Projects', 'Contact', 'About', 'Now']
 
   const renderedMenuList = menuList.map((el, i) => (
-    <li
+    <a
       key={i}
-      className="text-sm  mb-5 md:mb-0 font-bold md:font-normal md:text-[12px] md:uppercase cursor-pointer md:text-gray-400 md:tracking-wider hover:text-gray-800"
+      className="text-normal block mb-5 md:mb-0 font-bold md:font-medium md:text-[12px] md:uppercase cursor-pointer md:text-gray-500 md:tracking-wider hover:text-gray-900"
     >
       {el}
-    </li>
+    </a>
   ))
 
   return (
     <div>
-      <header className="flex justify-between items-center px-6 py-8 md:flex-col md:gap-1 md:items-start md:px-16 lg:py-16 lg:px-20  lg:relative">
-        <div className="flex gap-4 items-center md:flex-col md:gap-3  md:items-start lg:flex-row lg:gap-8">
+      <header className="flex justify-between items-center  md:flex-col md:gap-1 md:items-start   lg:relative">
+        <div className="flex gap-4 items-center md:flex-col md:gap-3  md:items-start lg:flex-row lg:gap-12">
           <img
             src={logo}
             alt=""
-            className="h-10 md:h-12 lg:h-16 rounded-full"
+            className="h-10 md:h-12 lg:h-20 rounded-full"
           />
-          <p className="font-['Lustria'] font-bold text-lg lg:text-2xl">
+          <p className="font-extrabold text-2xl text-gray-800 lg:text-3xl lg:pt-1 ">
             Gurkirat Singh
           </p>
         </div>
-
-        <div className="hidden md:block lg:absolute lg:left-[183px] lg:top-[102px]">
-          <ul className="font-bold md:font-light md:flex md:gap-6  ">
+        {/* Menu Desktop */}
+        <div className="hidden md:block lg:absolute lg:left-[137px] lg:top-[54px]">
+          <ul className="font-bold md:font-light md:flex md:gap-6">
             {renderedMenuList}
           </ul>
         </div>
         <span className="cursor-pointer md:hidden">
-          {isOpen && <MdClose onClick={handleClick} className="text-xl" />}
-          {!isOpen && <FiMenu onClick={handleClick} className="text-xl" />}
+          {isOpen && <MdClose onClick={handleClick} className="text-3xl" />}
+          {!isOpen && <FiMenu onClick={handleClick} className="text-3xl" />}
         </span>
       </header>
       {/* Menu-Mobile */}
       {isOpen && (
-        <ul className="px-12 mt-2 md:hidden h-screen">{renderedMenuList}</ul>
+        <div className="space-y-8 overflow-y-auto pt-6 pb-8 px-12 max-h-full mt-6 md:hidden block h-screen">
+          {renderedMenuList}
+        </div>
       )}
     </div>
   )
