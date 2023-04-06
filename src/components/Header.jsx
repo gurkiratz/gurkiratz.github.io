@@ -14,6 +14,7 @@ export default function Header() {
 
   const renderedMenuList = menuList.map((el, i) => (
     <NavLink
+      key={i}
       to={el.toLowerCase()}
       className={({ isActive }) =>
         isActive ? 'text-gray-900' : 'md:text-gray-500'
@@ -21,7 +22,6 @@ export default function Header() {
     >
       <a
         onClick={() => setisOpen(false)}
-        key={i}
         className="text-normal block mb-5 md:mb-0 font-bold md:font-medium md:text-[12px] md:uppercase cursor-pointer  md:tracking-wider hover:text-gray-900"
       >
         {el}

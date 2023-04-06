@@ -12,7 +12,7 @@ export default function Home() {
         <div className="text-lg leading-normal space-y-6">
           <p>
             I'm{' '}
-            <A href="www.github.com/gurkiratz" target="_blank">
+            <A href="https://github.com/gurkiratz" target="_blank">
               @gurkiratz
             </A>
             , learning React and NodeJS, entrepreneur, and{' '}

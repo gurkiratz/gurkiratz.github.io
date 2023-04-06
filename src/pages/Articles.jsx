@@ -1,28 +1,30 @@
+import { Link } from 'react-router-dom'
 import articles from '../data/articles.json'
+import slugify from 'slugify'
 
 export default function Articles() {
-  const renderedArticles = articles.map((article, index) => {
+  const renderedArticles = articles.map((article) => {
+    let titleSlug = slugify(article.title, { lower: true })
     return (
-      <div
-        key={article.id}
-        className="flex flex-col gap-2 sm:gap-12 sm:flex-row max-w-2xl hover:bg-slate-100 p-4 sm:p-6 rounded-2xl cursor-pointer"
-      >
-        <p className="text-gray-400 text-sm flex items-center sm:items-start gap-3">
-          <span className="inline-block w-[2px] h-4 bg-gray-400 sm:hidden"></span>{' '}
-          {new Date(article.updated).toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-          })}
-        </p>
-        <div className="space-y-3">
-          <p className="font-medium">{article.title}</p>
-          <p className="text-sm text-gray-500">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic!
+      <Link key={article.id} to={`/articles/${titleSlug}`} state={article}>
+        <div className="flex flex-col gap-2 sm:gap-12 sm:flex-row max-w-2xl hover:bg-slate-100 p-4 sm:p-6 rounded-2xl cursor-pointer">
+          <p className="text-gray-400 text-sm flex items-center sm:items-start gap-3">
+            <span className="inline-block w-[2px] h-4 bg-gray-400 sm:hidden"></span>{' '}
+            {new Date(article.updated).toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            })}
           </p>
-          <p className="text-sm text-[#14B8A6]">Read article &#8594;</p>
+          <div className="space-y-3">
+            <p className="font-medium">{article.title}</p>
+            <p className="text-sm text-gray-500">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic!
+            </p>
+            <p className="text-sm text-[#14B8A6]">Read article &#8594;</p>
+          </div>
         </div>
-      </div>
+      </Link>
     )
   })
 
@@ -40,7 +42,7 @@ export default function Articles() {
         {/* Heading End*/}
 
         {/* Articles */}
-        <div className="flex flex-col gap-4 sm:pl-6">
+        <div className="flex flex-col gap-4">
           {/* Article */}
           {/* <div className="flex flex-col gap-2 sm:gap-12 sm:flex-row max-w-2xl hover:bg-slate-100 p-4 sm:p-6 rounded-2xl ">
             <p className="text-gray-400 text-sm flex items-center sm:items-start gap-3">
