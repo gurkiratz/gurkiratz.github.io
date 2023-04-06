@@ -1,4 +1,5 @@
 import { useParams, useLocation } from 'react-router-dom'
+import { Interweave } from 'interweave'
 
 function Article() {
   const location = useLocation()
@@ -6,7 +7,8 @@ function Article() {
   return (
     <div>
       <h1>{article.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: article.content }}></div>
+      <Interweave content={article.content} />
+      {/* <div dangerouslySetInnerHTML={{ __html: article.content }}></div> */}
     </div>
   )
 }
