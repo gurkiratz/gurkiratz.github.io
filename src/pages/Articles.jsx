@@ -2,8 +2,33 @@ import { Link } from 'react-router-dom'
 import articles from '../data/articles.json'
 import slugify from 'slugify'
 import { Interweave } from 'interweave'
+import { useEffect } from 'react'
+import axios from 'axios'
 
 export default function Articles() {
+  // const getDatabase = async () => {
+  // const response = await notion.databases.retrieve({
+  //   database_id: process.env.NOTION_ARTICLE_DATABASE_ID,
+  // })
+  // console.log(response)
+  // }
+
+  useEffect(() => {
+    const options = {
+      method: 'GET',
+      url: 'http://localhost:8000/news',
+    }
+
+    axios
+      .request(options)
+      .then((response) => {
+        console.log(response.data.results)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }, [])
+
   const renderedArticles = articles.map((article) => {
     const titleSlug = slugify(article.title, { lower: true })
     const description = article.content.slice(
