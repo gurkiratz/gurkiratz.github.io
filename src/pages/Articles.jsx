@@ -1,25 +1,33 @@
 import { Link } from 'react-router-dom'
 import articles from '../data/articles.json'
 import slugify from 'slugify'
+import { Interweave } from 'interweave'
 
 export default function Articles() {
   const renderedArticles = articles.map((article) => {
-    let titleSlug = slugify(article.title, { lower: true })
+    const titleSlug = slugify(article.title, { lower: true })
+    const description = article.content.slice(
+      article.content.indexOf('<p>'),
+      article.content.indexOf('</p>') + 4
+    )
     return (
       <Link key={article.id} to={`/articles/${titleSlug}`} state={article}>
         <div className="flex flex-col gap-2 sm:gap-12 sm:flex-row max-w-2xl hover:bg-slate-100 p-4 sm:p-6 rounded-2xl cursor-pointer">
+          {/* date */}
           <p className="text-gray-400 text-sm flex items-center sm:items-start gap-3">
             <span className="inline-block w-[2px] h-4 bg-gray-400 sm:hidden"></span>{' '}
-            {new Date(article.updated).toLocaleDateString('en-US', {
+            {new Date(article.published).toLocaleDateString('en-US', {
               year: 'numeric',
               month: 'long',
               day: 'numeric',
             })}
           </p>
           <div className="space-y-3">
+            {/* title */}
             <p className="font-medium">{article.title}</p>
+            {/* description */}
             <p className="text-sm text-gray-500">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic!
+              <Interweave content={description} />
             </p>
             <p className="text-sm text-[#14B8A6]">Read article &#8594;</p>
           </div>

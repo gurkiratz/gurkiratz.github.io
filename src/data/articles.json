@@ -6,11 +6,11 @@
       "id": "3441988657050669791"
     },
     "published": "2023-04-05T06:33:00-07:00",
-    "updated": "2023-04-05T06:33:00-07:00",
+    "updated": "2023-04-07T03:43:39-07:00",
     "url": "http://gurkiratz.blogspot.com/2023/04/random-post.html",
     "selfLink": "https://www.googleapis.com/blogger/v3/blogs/3441988657050669791/posts/8412019700479369547",
     "title": "Random Post",
-    "content": "<p>This is me trying to build up my portfolio website and using Blogger API to include these blogs under my blogs section.</p>",
+    "content": "<p>Uhmm... quite random! no?</p><p>This is me trying to build up my portfolio website and using Blogger API to include these blogs under my blogs section.</p>",
     "author": {
       "id": "07495203820492003690",
       "displayName": "Gurkirat Singh",
@@ -23,7 +23,7 @@
       "totalItems": "0",
       "selfLink": "https://www.googleapis.com/blogger/v3/blogs/3441988657050669791/posts/8412019700479369547/comments"
     },
-    "etag": "\"dGltZXN0YW1wOiAxNjgwNzAxNTgwMTg3Cm9mZnNldDogLTI1MjAwMDAwCg\""
+    "etag": "\"dGltZXN0YW1wOiAxNjgwODY0MjE5MzI4Cm9mZnNldDogLTI1MjAwMDAwCg\""
   },
   {
     "kind": "blogger#post",
@@ -32,11 +32,11 @@
       "id": "3441988657050669791"
     },
     "published": "2023-04-05T06:30:00-07:00",
-    "updated": "2023-04-05T06:30:58-07:00",
+    "updated": "2023-04-07T03:51:38-07:00",
     "url": "http://gurkiratz.blogspot.com/2023/04/hello-world.html",
     "selfLink": "https://www.googleapis.com/blogger/v3/blogs/3441988657050669791/posts/8540847300343468668",
     "title": "Hello World",
-    "content": "<p><span style=\"background-color: #fafafa; color: var(--tw-prose-body); font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;\">While I do not have much to say at this time, I wanted to deploy this blog to Blogger as an exercise. If you are reading this, then hopefully by this point I will have added more posts.</span></p>",
+    "content": "<p><span style=\"background-color: #fafafa;\">Hello World... is this thing on?</span></p><p><span color=\"var(--tw-prose-body)\" face=\"ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, &quot;Noto Sans&quot;, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;\" style=\"background-color: #fafafa;\">While I do not have much to say at this time, I wanted to deploy this blog to Blogger as an exercise. If you are reading this, then hopefully by this point I will have added more posts.👻</span></p>",
     "author": {
       "id": "07495203820492003690",
       "displayName": "Gurkirat Singh",
@@ -49,6 +49,6 @@
       "totalItems": "0",
       "selfLink": "https://www.googleapis.com/blogger/v3/blogs/3441988657050669791/posts/8540847300343468668/comments"
     },
-    "etag": "\"dGltZXN0YW1wOiAxNjgwNzAxNDU4MjY4Cm9mZnNldDogLTI1MjAwMDAwCg\""
+    "etag": "\"dGltZXN0YW1wOiAxNjgwODY0Njk4MTQxCm9mZnNldDogLTI1MjAwMDAwCg\""
   }
 ]
