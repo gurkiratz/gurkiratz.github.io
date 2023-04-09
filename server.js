@@ -9,15 +9,15 @@ const app = express()
 app.use(cors())
 
 const notion = new Client({
-  auth: 'secret_Gc7ujULCqwVZ5EY5YHv0cO96HweyEZYV40TchsmpLqk',
+  auth: process.env.NOTION_API_KEY,
 })
 
 app.get('/', (req, res) => {
   res.json('hi')
 })
 
-app.get('/news', async (req, res) => {
-  const databaseId = '84d09caada504c09ac38936974563e08'
+app.get('/articles', async (req, res) => {
+  const databaseId = process.env.NOTION_ARTICLE_DATABASE_ID
   const response = await notion.databases.query({
     database_id: databaseId,
   })

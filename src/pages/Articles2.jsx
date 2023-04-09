@@ -10,7 +10,7 @@ export default function Articles() {
   useEffect(() => {
     const options = {
       method: 'GET',
-      url: 'http://localhost:8000/news',
+      url: 'http://localhost:8000/articles',
     }
 
     axios
@@ -27,9 +27,8 @@ export default function Articles() {
   const displayArticles = () => {
     if (articles.length > 0) {
       return articles.map((article) => {
-        let { title, description, content, createdAt } = article.properties
+        let { title, description, createdAt } = article.properties
         title = title.title[0].plain_text
-        content = content.rich_text[0].plain_text
         description = description.rich_text[0].plain_text
         createdAt = new Date(createdAt.created_time).toLocaleDateString(
           'en-US',
@@ -45,7 +44,7 @@ export default function Articles() {
           <Link
             key={article.id}
             to={`/articles/${titleSlug}`}
-            state={{ title, content, createdAt }}
+            state={article.id}
           >
             <div className="flex flex-col gap-2 sm:gap-12 sm:flex-row max-w-2xl hover:bg-slate-100 p-4 sm:p-6 rounded-2xl cursor-pointer">
               <p className="text-gray-400 text-sm flex items-center sm:items-start gap-3">
@@ -71,7 +70,7 @@ export default function Articles() {
   }
 
   if (error) return <div>{`Error: ${error.message}`}</div>
-  if (!articles) return <div>No Articles</div>
+  if (!articles) return <div>Loading ...</div>
 
   return (
     <div className="lg:pl-[136px] flex flex-col gap-3 mt-12">
