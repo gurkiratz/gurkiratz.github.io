@@ -5,6 +5,7 @@ import axios from 'axios'
 
 export default function Articles() {
   const [articles, setArticles] = useState(null)
+  const [storedArticles, setStoredArticles] = useState()
   const [error, setError] = useState(null)
 
   useEffect(() => {
@@ -17,16 +18,88 @@ export default function Articles() {
       .request(options)
       .then((response) => {
         setArticles(response.data.results)
-        console.log(articles)
+        sessionStorage.setItem(
+          'articles',
+          JSON.stringify(response.data.results)
+        )
+        setStoredArticles(response.data.results)
       })
       .catch((error) => {
         setError(error)
       })
   }, [])
 
+  useEffect(() => {
+    if (window.sessionStorage !== undefined) {
+      const data = window.sessionStorage.getItem('articles')
+      data !== null ? setStoredArticles(JSON.parse(data)) : null
+      console.log(storedArticles)
+    }
+  }, [])
+
+  // useEffect(() => {
+  //   if (articles) {
+  //     sessionStorage.setItem('articles', JSON.stringify(articles))
+  //   }
+  // }, [articles])
+
+  // const getStoredData = async () => {
+  //   const storedArticles = await JSON.parse(sessionStorage.getItem('articles'))
+  //   return storedArticles
+  // }
+
+  // console.log(getStoredData())
+  // console.log(storedArticles)
+  // const storedArticles = JSON.parse(sessionStorage.getItem('articles'))
+
   const displayArticles = () => {
     if (articles.length > 0) {
       return articles.map((article) => {
+        let { title, description, createdAt } = article.properties
+        title = title.title[0].plain_text
+        description = description.rich_text[0].plain_text
+        createdAt = new Date(createdAt.created_time).toLocaleDateString(
+          'en-US',
+          {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          }
+        )
+        const titleSlug = slugify(title, { lower: true })
+
+        return (
+          <Link
+            key={article.id}
+            to={`/articles/${titleSlug}`}
+            state={article.id}
+          >
+            <div className="flex flex-col gap-2 sm:gap-12 sm:flex-row max-w-2xl hover:bg-slate-100 p-4 sm:p-6 rounded-2xl cursor-pointer">
+              <p className="text-gray-400 text-sm flex items-center sm:items-start gap-3">
+                <span className="inline-block w-[2px] h-4 bg-gray-400 sm:hidden"></span>{' '}
+                {/* date */} {createdAt}
+              </p>
+              <div className="space-y-3">
+                <p className="font-medium">
+                  {/* title */} {title}
+                </p>
+                <p className="text-sm text-gray-500">
+                  {/* description */} {description}
+                </p>
+                <p className="text-sm text-[#14B8A6]">Read article &#8594;</p>
+              </div>
+            </div>
+          </Link>
+        )
+      })
+    } else {
+      return <div>No articles yet</div>
+    }
+  }
+
+  const displayArticles2 = () => {
+    if (storedArticles) {
+      return storedArticles.map((article) => {
         let { title, description, createdAt } = article.properties
         title = title.title[0].plain_text
         description = description.rich_text[0].plain_text
@@ -87,7 +160,7 @@ export default function Articles() {
         {/* Articles */}
         <div className="flex flex-col gap-4">
           {/* Article */}
-          {!articles ? <div>Loading ...</div> : displayArticles()}
+          {storedArticles ? displayArticles2() : <div>Loading ...</div>}
           {/* Article End */}
         </div>
         {/* Articles End*/}
