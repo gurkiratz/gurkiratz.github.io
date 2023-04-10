@@ -34,7 +34,12 @@ function Article() {
               <p key={block.id}>
                 {block.paragraph.rich_text.map((richtext, i) =>
                   richtext.text.link ? (
-                    <a key={i} href={richtext.text.link.url} target="_blank">
+                    <a
+                      className="underline"
+                      key={i}
+                      href={richtext.text.link.url}
+                      target="_blank"
+                    >
                       {richtext.plain_text}
                     </a>
                   ) : (

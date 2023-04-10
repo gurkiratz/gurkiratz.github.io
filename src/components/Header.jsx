@@ -20,12 +20,12 @@ export default function Header() {
         isActive ? 'text-gray-900' : 'md:text-gray-500'
       }
     >
-      <a
+      <span
         onClick={() => setisOpen(false)}
-        className="text-normal block mb-5 md:mb-0 font-bold md:font-medium md:text-[12px] md:uppercase cursor-pointer  md:tracking-wider hover:text-gray-900"
+        className="text-normal block mb-5 md:mb-0 font-bold md:font-semibold md:text-[12px] md:uppercase cursor-pointer  md:tracking-wider hover:text-gray-900"
       >
         {el}
-      </a>
+      </span>
     </NavLink>
   ))
 
@@ -39,12 +39,12 @@ export default function Header() {
             className="h-10 md:h-12 lg:h-20 rounded-full"
           />
           <Link to="/">
-            <a
+            <span
               onClick={() => setisOpen(false)}
               className="font-extrabold text-2xl block text-gray-800 lg:text-3xl lg:pt-1"
             >
               Gurkirat Singh
-            </a>
+            </span>
           </Link>
         </div>
         {/* Menu Desktop */}

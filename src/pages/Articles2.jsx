@@ -70,7 +70,6 @@ export default function Articles() {
   }
 
   if (error) return <div>{`Error: ${error.message}`}</div>
-  if (!articles) return <div>Loading ...</div>
 
   return (
     <div className="lg:pl-[136px] flex flex-col gap-3 mt-12">
@@ -88,7 +87,7 @@ export default function Articles() {
         {/* Articles */}
         <div className="flex flex-col gap-4">
           {/* Article */}
-          {displayArticles()}
+          {!articles ? <div>Loading ...</div> : displayArticles()}
           {/* Article End */}
         </div>
         {/* Articles End*/}
