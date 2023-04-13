@@ -32,7 +32,6 @@ export default function Articles() {
     if (window.sessionStorage !== undefined) {
       const data = window.sessionStorage.getItem('articles')
       data !== null ? setArticles(JSON.parse(data)) : null
-      console.log(articles)
     }
   }, [])
 
@@ -56,9 +55,13 @@ export default function Articles() {
           <Link
             key={article.id}
             to={`/articles/${titleSlug}`}
-            state={article.id}
+            state={{
+              id: article.id,
+              createdAt,
+              title,
+            }}
           >
-            <div className="flex flex-col gap-2 sm:gap-12 sm:flex-row max-w-2xl hover:bg-slate-100 p-4 sm:p-6 rounded-2xl cursor-pointer">
+            <div className="flex flex-col gap-2 sm:gap-12 md:gap-24 sm:flex-row max-w-2xl hover:bg-gray-50 p-4 sm:p-6 rounded-2xl cursor-pointer">
               <p className="text-gray-400 text-sm flex items-center sm:items-start gap-3">
                 <span className="inline-block w-[2px] h-4 bg-gray-400 sm:hidden"></span>{' '}
                 {/* date */} {createdAt}
@@ -97,7 +100,8 @@ export default function Articles() {
         {/* Heading End*/}
 
         {/* Articles */}
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 sm:relative">
+          <span className="hidden sm:inline-block w-[1px] h-full bg-gray-200 sm:absolute"></span>
           {/* Article */}
           {articles ? displayArticles() : <div>Loading ...</div>}
           {/* Article End */}

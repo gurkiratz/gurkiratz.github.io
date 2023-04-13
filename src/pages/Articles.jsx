@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import articles from '../data/articles.json'
 import slugify from 'slugify'
 import { Interweave } from 'interweave'
 import { useEffect } from 'react'
