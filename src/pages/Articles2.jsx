@@ -2,8 +2,10 @@ import { Link } from 'react-router-dom'
 import slugify from 'slugify'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import useDocumentTitle from '../utils/useDocumentTitle'
 
 export default function Articles() {
+  useDocumentTitle('Articles - Gurkirat Singh')
   const [articles, setArticles] = useState()
   const [error, setError] = useState(null)
 
@@ -21,7 +23,6 @@ export default function Articles() {
           'articles',
           JSON.stringify(response.data.results)
         )
-        setArticles(response.data.results)
       })
       .catch((error) => {
         setError(error)

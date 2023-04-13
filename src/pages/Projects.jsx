@@ -1,4 +1,7 @@
+import useDocumentTitle from '../utils/useDocumentTitle'
+
 export default function Projects() {
+  useDocumentTitle('Projects - Gurkirat Singh')
   return (
     <div className="lg:pl-[136px] flex flex-col gap-3 text-lg mt-12">
       <div className="max-w-[40rem]">

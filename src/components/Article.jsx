@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { MdKeyboardBackspace } from 'react-icons/md'
-import { IoIosArrowRoundBack } from 'react-icons/io'
+import useDocumentTitle from '../utils/useDocumentTitle'
 
 function Article() {
   let navigate = useNavigate()
@@ -12,6 +12,7 @@ function Article() {
   const pageId = location.state.id.split('-').join('')
   const createdAt = location.state.createdAt
   const title = location.state.title
+  useDocumentTitle(title)
 
   useEffect(() => {
     const options = {
@@ -91,12 +92,12 @@ function Article() {
           className="p-3 border text-lg h-10 w-10 bg-white rounded-full shadow hover:text-black/95"
         />
       </button>
-      <div className="space-y-6">
-        <p className="text-gray-400 flex items-center gap-3 ">
+      <div>
+        <p className="text-gray-400 flex items-center gap-3 mb-2">
           <span className="inline-block w-[1.5px] h-4 bg-gray-300"></span>{' '}
           {createdAt}
         </p>
-        <p className="text-3xl font-extrabold text-gray-800 ">{title}</p>
+        <p className="text-3xl font-extrabold text-gray-800 mb-6">{title}</p>
         <div className="space-y-5">{renderContent()}</div>
       </div>
     </div>

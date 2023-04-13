@@ -33,11 +33,13 @@ export default function Header() {
     <>
       <header className="flex justify-between items-center  md:flex-col md:gap-1 md:items-start   lg:relative">
         <div className="flex gap-4 items-center md:flex-col md:gap-3  md:items-start lg:flex-row lg:gap-12">
-          <img
-            src={logo}
-            alt=""
-            className="h-10 md:h-12 lg:h-20 rounded-full"
-          />
+          <Link to="/">
+            <img
+              src={logo}
+              alt=""
+              className="h-10 md:h-12 lg:h-20 rounded-full"
+            />
+          </Link>
           <Link to="/">
             <span
               onClick={() => setisOpen(false)}
