@@ -1,4 +1,4 @@
-import useDocumentTitle from '../utils/useDocumentTitle'
+import useDocumentTitle from '../hooks/useDocumentTitle'
 
 export default function Projects() {
   useDocumentTitle('Projects - Gurkirat Singh')

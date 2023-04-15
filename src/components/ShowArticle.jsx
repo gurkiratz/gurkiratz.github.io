@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { MdKeyboardBackspace } from 'react-icons/md'
-import useDocumentTitle from '../utils/useDocumentTitle'
+import useDocumentTitle from '../hooks/useDocumentTitle'
+
+import useRenderContent from '../hooks/useRenderContent'
 
 function Article() {
   let navigate = useNavigate()
@@ -30,57 +32,6 @@ function Article() {
       })
   }, [])
 
-  function renderContent() {
-    if (articleData.length > 0) {
-      return articleData.map((block) => {
-        switch (block.type) {
-          case 'paragraph':
-            return (
-              <p key={block.id}>
-                {block.paragraph.rich_text.map((richtext, i) =>
-                  richtext.text.link ? (
-                    <a
-                      className="underline"
-                      key={i}
-                      href={richtext.text.link.url}
-                      target="_blank"
-                    >
-                      {richtext.plain_text}
-                    </a>
-                  ) : (
-                    richtext.plain_text
-                  )
-                )}
-              </p>
-            )
-
-          case 'image':
-            return (
-              <img
-                key={block.id}
-                src={block.image.external.url}
-                alt={block.image.caption[0]?.plain_text}
-              />
-            )
-
-          case 'embed':
-            return (
-              <img
-                key={block.id}
-                src={block.embed.url}
-                alt={block.embed.caption[0].plain_text}
-              />
-            )
-
-          default:
-            return null
-        }
-      })
-    } else {
-      return <div>No Data loaded</div>
-    }
-  }
-
   if (error) return <div>{`Error: ${error.message}`}</div>
   if (!articleData) return <div>Loading ...</div>
 
@@ -98,7 +49,7 @@ function Article() {
           {createdAt}
         </p>
         <p className="text-3xl font-extrabold text-gray-800 mb-6">{title}</p>
-        <div className="space-y-5">{renderContent()}</div>
+        <div className="space-y-5">{useRenderContent(articleData)}</div>
       </div>
     </div>
   )

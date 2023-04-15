@@ -1,6 +1,6 @@
 import tw from 'twin.macro'
 import { BsTwitter, BsGithub, BsLinkedin, BsInstagram } from 'react-icons/bs'
-import useDocumentTitle from '../utils/useDocumentTitle'
+import useDocumentTitle from '../hooks/useDocumentTitle'
 
 const A = tw.a`font-bold underline cursor-pointer text-gray-800`
 const AS = tw.a`text-gray-500 text-2xl hover:text-[#14B8A6] ease-in duration-100`
