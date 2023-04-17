@@ -14,6 +14,7 @@ function Article() {
   const pageId = location.state.id.split('-').join('')
   const createdAt = location.state.createdAt
   const title = location.state.title
+  const titleSlug = location.state.titleSlug
   useDocumentTitle(title)
 
   useEffect(() => {
@@ -26,10 +27,18 @@ function Article() {
       .request(options)
       .then((response) => {
         setArticleData(response.data.results)
+        sessionStorage.setItem(titleSlug, JSON.stringify(response.data.results))
       })
       .catch((error) => {
         setError(error)
       })
+  }, [])
+
+  useEffect(() => {
+    if (window.sessionStorage !== undefined) {
+      const data = window.sessionStorage.getItem(titleSlug)
+      data !== null ? setArticleData(JSON.parse(data)) : null
+    }
   }, [])
 
   if (error) return <div>{`Error: ${error.message}`}</div>
