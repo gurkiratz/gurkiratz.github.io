@@ -19,12 +19,8 @@ export default function Home() {
             <A href="https://github.com/gurkiratz" target="_blank">
               @gurkiratz
             </A>
-            , a first year Computer Science student at the 🎓 University of
-            Toronto, Mississauga.
-          </p>
-          <p>
-            I share everything I know about making awesome software through my
-            articles, talks, screencasts, podcast, and courses.
+            , a first year Computer Science student at 🎓 Humber College,
+            Toronto.
           </p>
           <div className="flex gap-10 text-2xl text-gray-500">
             <AS href="https://twitter.com/theGurSingh" target="_blank">

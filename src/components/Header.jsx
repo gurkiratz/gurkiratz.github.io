@@ -37,7 +37,7 @@ export default function Header() {
             <img
               src={logo}
               alt=""
-              className="h-10 md:h-12 lg:h-20 rounded-full"
+              className="h-10 md:h-12 lg:h-20 rounded-full "
             />
           </Link>
           <Link to="/">
