@@ -20,7 +20,7 @@ function Article() {
   useEffect(() => {
     const options = {
       method: 'GET',
-      url: `http://localhost:8000/article/${pageId}`,
+      url: `https://portfolio-backend-bars.onrender.com/article/${pageId}`,
     }
 
     axios

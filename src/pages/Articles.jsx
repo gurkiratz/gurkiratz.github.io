@@ -11,7 +11,7 @@ export default function Articles() {
   useEffect(() => {
     const options = {
       method: 'GET',
-      url: 'http://localhost:8000/articles',
+      url: 'https://portfolio-backend-bars.onrender.com/articles',
     }
 
     axios
