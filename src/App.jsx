@@ -7,13 +7,14 @@ import Projects from './pages/Projects'
 // import { useState } from 'react'
 
 function App() {
+  const baseUrl = '/portfolio-v1'
   // const [props, setProps] = useState(null)
   return (
     <div
       id="App"
       className="py-8 lg:py-16 px-6 md:px-16 lg:px-24 text-gray-700"
     >
-      <Router>
+      <Router basename={baseUrl}>
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
