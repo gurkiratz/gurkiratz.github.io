@@ -22,6 +22,10 @@ export default function Home() {
             , a first year Computer Science student at 🎓 Humber College,
             Toronto.
           </p>
+          <p>
+            I enjoy working and developing web applications(and APIs for all
+            purposes).
+          </p>
           <div className="flex gap-10 text-2xl text-gray-500">
             <AS href="https://twitter.com/theGurSingh" target="_blank">
               <BsTwitter />

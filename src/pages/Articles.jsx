@@ -45,7 +45,16 @@ export default function Articles() {
     }
   }
 
-  if (error) return <div>{`Error: ${error.message}`}</div>
+  if (error)
+    return (
+      <div>
+        {`Error: ${error.message}`}{' '}
+        <p>
+          You will not be able to see articles page unless you start a backend
+          (as it contains API keys)
+        </p>
+      </div>
+    )
 
   return (
     <div className="lg:pl-[136px] flex flex-col gap-3 mt-12">
