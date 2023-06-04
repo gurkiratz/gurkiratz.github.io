@@ -12,11 +12,6 @@ export default function Projects() {
             utility-first CSS framework for rapidly building custom user
             interfaces.
           </p>
-          <p>
-            I made the decision to work on it full-time beginning in 2019, and
-            have a lot of plans for continuing to improve the framework, grow
-            the community, and expand the ecosystem.
-          </p>
         </div>
       </div>
     </div>
