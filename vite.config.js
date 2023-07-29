@@ -7,10 +7,10 @@
 // })
 
 // vite.config.ts
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import mdx from '@mdx-js/rollup';
 
-// https://vitejs.dev/config/
 export default defineConfig({
   optimizeDeps: {
     esbuildOptions: {
@@ -23,10 +23,11 @@ export default defineConfig({
   },
   base: '/portfolio-v1',
   plugins: [
+    mdx(),
     react({
       babel: {
         plugins: ['babel-plugin-macros', 'babel-plugin-styled-components'],
       },
     }),
   ],
-})
+});

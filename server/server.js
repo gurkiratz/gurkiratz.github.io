@@ -1,36 +1,39 @@
-const PORT = 8000
-const axios = require('axios')
-const express = require('express')
-const { Client } = require('@notionhq/client')
-const cors = require('cors')
-require('dotenv').config()
+const PORT = 8000;
+const axios = require('axios');
+const express = require('express');
+const fs = require('fs');
+const { Client } = require('@notionhq/client');
+const cors = require('cors');
+require('dotenv').config();
 
-const app = express()
+const articleController = require('./controllers/articleController');
 
-app.use(cors())
+const app = express();
 
+app.use(express.json());
+app.use(cors());
 const notion = new Client({
   auth: process.env.NOTION_API_KEY,
-})
+});
 
 app.get('/', (req, res) => {
-  res.json('hi')
-})
+  res.json('hi');
+});
 
 app.get('/articles', async (req, res) => {
-  const databaseId = process.env.NOTION_ARTICLE_DATABASE_ID
+  const databaseId = process.env.NOTION_ARTICLE_DATABASE_ID;
   const response = await notion.databases.query({
     database_id: databaseId,
-  })
-  res.json(response)
-})
+  });
+  res.json(response);
+});
 
 app.get('/article/:pageId', async (req, res) => {
-  const pageId = req.params.pageId
+  const pageId = req.params.pageId;
   const response = await notion.blocks.children.list({
     block_id: pageId,
-  })
-  res.json(response)
+  });
+  res.json(response);
 
   // const res2 = await axios.request({
   //   method: 'GET',
@@ -42,8 +45,10 @@ app.get('/article/:pageId', async (req, res) => {
   //   },
   // })
   // res.json(res2.data)
-})
+});
+
+app.post('/create', articleController.createArticle);
 
 app.listen(PORT, () => {
-  console.log('Server is running on PORT', PORT)
-})
+  console.log('Server is running on PORT', PORT);
+});
