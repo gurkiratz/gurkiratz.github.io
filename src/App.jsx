@@ -1,14 +1,16 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import Articles from './pages/Articles';
-import ShowArticle from './components/ShowArticle';
-import Home from './pages/Home';
-import Projects from './pages/Projects';
-import MDeditor from './components/MDeditor';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Header from './components/Header'
+import Articles from './pages/Articles'
+import ShowArticle from './components/ShowArticle'
+import Home from './pages/Home'
+import Projects from './pages/Projects'
+import MDeditor from './components/MDeditor'
+import Contact from './pages/Contact'
 // import { useState } from 'react'
 
 function App() {
-  const baseUrl = '/portfolio-v1';
+  // const baseUrl = '/portfolio-v1'
+  const baseUrl = '/'
   // const [props, setProps] = useState(null)
   return (
     <div
@@ -21,12 +23,13 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/articles" element={<Articles />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/articles/:article" element={<ShowArticle />} />
           <Route path="/editor" element={<MDeditor />} />
         </Routes>
       </Router>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

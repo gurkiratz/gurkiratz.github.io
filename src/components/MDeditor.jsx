@@ -1,81 +1,81 @@
-import MDEditor, { selectWord } from '@uiw/react-md-editor';
-import { useEffect, useState } from 'react';
+import MDEditor from '@uiw/react-md-editor'
+import { useEffect, useState } from 'react'
 // import Loader from 'react-loader-spinner';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import axios from 'axios'
 // No import is required in the WebPack.
 // import "@uiw/react-md-editor/dist/markdown-editor.css";
 
-const curDate = new Date();
-const options = { month: 'long', day: 'numeric', year: 'numeric' };
-const formattedDate = curDate.toLocaleDateString('en-US', options);
+const curDate = new Date()
+const options = { month: 'long', day: 'numeric', year: 'numeric' }
+const formattedDate = curDate.toLocaleDateString('en-US', options)
 const defaults = {
   date: `> ${formattedDate}`,
   title: '# Title',
   content: 'content',
-};
+}
 
 export default function Example() {
-  const [date, setDate] = useState(defaults.date);
-  const [title, setTitle] = useState(defaults.title);
-  const [content, setContent] = useState(defaults.content);
+  const [date, setDate] = useState(defaults.date)
+  const [title, setTitle] = useState(defaults.title)
+  const [content, setContent] = useState(defaults.content)
   // const [mdxContent, setMdxContent] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
-    const savedData = JSON.parse(localStorage.getItem('inputData'));
+    const savedData = JSON.parse(localStorage.getItem('inputData'))
 
     if (savedData) {
       const {
         date = defaults.date,
         title = defaults.title,
         content = defaults.content,
-      } = savedData;
+      } = savedData
 
-      setDate(date);
-      setTitle(title);
-      setContent(content);
+      setDate(date)
+      setTitle(title)
+      setContent(content)
     }
-  }, []);
+  }, [])
 
   const handleSave = () => {
-    const inputData = { date, title, content };
+    const inputData = { date, title, content }
 
-    localStorage.setItem('inputData', JSON.stringify(inputData));
-    console.log(JSON.stringify(inputData));
-  };
+    localStorage.setItem('inputData', JSON.stringify(inputData))
+    console.log(JSON.stringify(inputData))
+  }
 
   const handlePublish = () => {
-    setIsLoading(true);
-    const inputData = { date, title, content };
-    const updatedContent = `${inputData.date} \n${inputData.title}\n${inputData.content}`;
-    const mdxContent = { title: inputData.title, content: updatedContent };
+    setIsLoading(true)
+    const inputData = { date, title, content }
+    const updatedContent = `${inputData.date} \n${inputData.title}\n${inputData.content}`
+    const mdxContent = { title: inputData.title, content: updatedContent }
 
     axios
       .post('http://localhost:8000/create', { mdxContent })
       .then((response) => {
-        setIsLoading(false);
+        setIsLoading(false)
 
         if (response.data.success) {
-          toast.success(response.data.message);
-          console.log(response.data.message);
+          toast.success(response.data.message)
+          console.log(response.data.message)
           // Clear the mdxContent state after publishing
-          setDate(defaults.date);
-          setTitle(defaults.title);
-          setContent(defaults.content);
-          localStorage.clear();
+          setDate(defaults.date)
+          setTitle(defaults.title)
+          setContent(defaults.content)
+          localStorage.clear()
         } else {
-          toast.error(response.data.message);
-          console.log(response.data.message);
+          toast.error(response.data.message)
+          console.log(response.data.message)
         }
       })
       .catch((error) => {
-        setIsLoading(false);
-        toast.error('An error occurred while publishing the article.');
-        console.error(error);
-      });
-  };
+        setIsLoading(false)
+        toast.error('An error occurred while publishing the article.')
+        console.error(error)
+      })
+  }
 
   return (
     <div className="container">
@@ -111,5 +111,5 @@ export default function Example() {
       {/* Toast notifications container */}
       <ToastContainer />
     </div>
-  );
+  )
 }

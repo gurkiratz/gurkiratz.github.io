@@ -7,9 +7,9 @@
 // })
 
 // vite.config.ts
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import mdx from '@mdx-js/rollup';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import mdx from '@mdx-js/rollup'
 
 export default defineConfig({
   optimizeDeps: {
@@ -21,7 +21,7 @@ export default defineConfig({
     // https://github.com/vitejs/vite/issues/8644#issuecomment-1159308803
     logOverride: { 'this-is-undefined-in-esm': 'silent' },
   },
-  base: '/portfolio-v1',
+  base: '/',
   plugins: [
     mdx(),
     react({
@@ -30,4 +30,4 @@ export default defineConfig({
       },
     }),
   ],
-});
+})

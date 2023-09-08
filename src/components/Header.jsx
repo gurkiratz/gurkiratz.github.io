@@ -10,7 +10,7 @@ export default function Header() {
     setisOpen((prev) => !prev)
   }
 
-  const menuList = ['Articles', 'Projects', 'Contact', 'About', 'Now']
+  const menuList = ['Projects', 'Contact']
 
   const renderedMenuList = menuList.map((el, i) => (
     <NavLink
