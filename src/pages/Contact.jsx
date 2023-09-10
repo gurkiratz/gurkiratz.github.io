@@ -2,8 +2,11 @@ import Container from '../components/Container'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { Social } from './Home'
+import useDocumentTitle from '../hooks/useDocumentTitle'
 
 const Contact = () => {
+  useDocumentTitle('Contact - Gurkirat Singh')
+
   const openWidget = () => {
     Calendly.initPopupWidget({
       url: 'https://calendly.com/gurkiratz/quick-chat?hide_gdpr_banner=1',
