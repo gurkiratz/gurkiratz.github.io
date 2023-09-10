@@ -1,16 +1,12 @@
 import tw from 'twin.macro'
 import { BsTwitter, BsGithub, BsLinkedin, BsInstagram } from 'react-icons/bs'
 import useDocumentTitle from '../hooks/useDocumentTitle'
-import { useState } from 'react'
 import Timer from '../components/Timer'
 import Container from '../components/Container'
 
-const A = tw.a`font-bold underline cursor-pointer text-gray-800`
+export const A = tw.a`font-bold underline cursor-pointer text-gray-800`
 const AS = tw.a`text-gray-700 text-2xl hover:text-gray-900 ease-in duration-100`
-// hover:text-[#14B8A6]
 export default function Home() {
-  const [articleContent, setArticleContent] = useState('')
-
   useDocumentTitle('Gurkirat Singh')
   return (
     <Container>

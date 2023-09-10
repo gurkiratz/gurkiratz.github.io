@@ -10,21 +10,24 @@ const projectsData = [
     title: 'World Clock',
     description:
       'World Clock w/ dayjs package - Choose your timezone with ease🚀',
-    link: 'https://gurkiratz.github.io/dayjs-app/',
+    link: 'https://github.com/gurkiratz/dayjs-app',
+    demo: 'https://gurkiratz.github.io/dayjs-app/',
   },
   {
     id: 2,
     title: 'Portfolio',
     description:
       'My Personal Portfolio website made using React and Tailwind (Under construction)',
-    link: 'https://gurkiratz.github.io/portfolio-v1/',
+    link: 'https://github.com/gurkiratz/gurkiratz.github.io',
+    demo: 'https://gurkiratz.github.io',
   },
   {
     id: 3,
     title: 'Receipt Calculator',
     description:
       'This app can be used by cashiers to add products, their price and quantity to checkout and print a receipt for the user. (Not responsive❗)',
-    link: 'https://gurkiratz.github.io/01-Receipt-Calculator-App/',
+    link: 'https://github.com/gurkiratz/01-Receipt-Calculator-App',
+    demo: 'https://gurkiratz.github.io/01-Receipt-Calculator-App/',
   },
 ]
 
@@ -69,7 +72,7 @@ function ProjectCard({ project }) {
       <p className="text-[1rem] leading-normal">{project.description}</p>
       <div>
         <a
-          href={project.link}
+          href={project.demo}
           target="_blank"
           className="text-sm mt-2 text-gray-500"
         >

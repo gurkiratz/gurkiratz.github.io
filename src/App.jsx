@@ -6,12 +6,10 @@ import Home from './pages/Home'
 import Projects from './pages/Projects'
 import MDeditor from './components/MDeditor'
 import Contact from './pages/Contact'
-// import { useState } from 'react'
 
 function App() {
   // const baseUrl = '/portfolio-v1'
   const baseUrl = '/'
-  // const [props, setProps] = useState(null)
   return (
     <div
       id="App"

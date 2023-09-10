@@ -51,3 +51,7 @@
 > **Apr 11, 2023 - 1:00 am**
 
 - actually, fetching the api everytime articles rerendered was a bit tideous. so though of using sessionStorage to store articles data. **But what if you know the response will not change, and you want to persist it to eliminate unnecessary API calls on rerenders? (refer -** [https://rapidapi.com/guides/persist-api-response](https://rapidapi.com/guides/persist-api-response)**)**
+
+> **Sept 9, 2023 - 8:27 pm 📍Toronto**
+
+- Finally implemented Articles section with MDX and react. had a lot to go through, even given up at times but somehow I made it🚀🥊
