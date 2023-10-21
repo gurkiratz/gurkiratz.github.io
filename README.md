@@ -1,4 +1,4 @@
-## LIVE - https://gurkiratz.github.io/portfolio-v1/
+## LIVE - https://gurkiratz.github.io
 
 # Timeline
 
