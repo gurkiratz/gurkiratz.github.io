@@ -15,7 +15,7 @@ export default function Header() {
   const renderedMenuList = menuList.map((el, i) => (
     <NavLink
       key={i}
-      to={el.toLowerCase()}
+      to={el === 'Home' ? '/' : el.toLowerCase()}
       className={({ isActive }) =>
         isActive ? 'text-gray-900' : 'md:text-gray-500'
       }
