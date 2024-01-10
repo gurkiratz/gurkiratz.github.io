@@ -7,27 +7,51 @@ const A = tw.a`font-bold underline cursor-pointer text-gray-800`
 const projectsData = [
   {
     id: 1,
+    title: 'Wishlistify',
+    description:
+      'React/TypeScript app for easy wishlist creation, updation and deletion\nTechnologies: React, TypeScript, Recoil.js State Management, Tailwind CSS',
+    link: 'https://github.com/gurkiratz/wishlistify',
+    demo: 'https://soft-travesseiro-288fbe.netlify.app/',
+  },
+  {
+    id: 2,
     title: 'World Clock',
     description:
-      'World Clock w/ dayjs package - Choose your timezone with ease🚀',
+      'A clone of iPhone World Clock\nTechnologies: React, day.js package, Tailwind CSS',
     link: 'https://github.com/gurkiratz/dayjs-app',
     demo: 'https://gurkiratz.github.io/dayjs-app/',
   },
   {
-    id: 2,
-    title: 'Portfolio',
+    id: 3,
+    title: 'Emaily Server',
     description:
-      'My Personal Portfolio website made using React and Tailwind (Under construction)',
-    link: 'https://github.com/gurkiratz/gurkiratz.github.io',
-    demo: 'https://gurkiratz.github.io',
+      'A full stack app to send surveys and emails (Under construction)\nTechnologies: Node.js, TypeScript, Express, Google OAuth2.0, Prisma ORM',
+    link: 'https://github.com/gurkiratz/emaily-server',
+    demo: 'https://github.com/gurkiratz/emaily-server',
   },
   {
-    id: 3,
+    id: 4,
+    title: 'Mukhwak Bot (Discord)',
+    description:
+      'A Discord bot that provides a daily Hukamnama from Sri Darbar Sahib, Sri Amritsar (Under construction)\nTechnologies: Node.js, Discord.js',
+    link: 'https://github.com/gurkiratz/mukhwak-bot',
+    demo: 'https://github.com/gurkiratz/mukhwak-bot',
+  },
+  {
+    id: 5,
+    title: 'Portfolio',
+    description:
+      'My Personal Portfolio website\nTechnologies: React, React Router, Tailwind CSS',
+    link: 'https://github.com/gurkiratz/gurkiratz.github.io',
+    demo: 'https://devkirat.me/',
+  },
+  {
+    id: 6,
     title: 'Receipt Calculator',
     description:
-      'This app can be used by cashiers to add products, their price and quantity to checkout and print a receipt for the user. (Not responsive❗)',
-    link: 'https://github.com/gurkiratz/01-Receipt-Calculator-App',
-    demo: 'https://gurkiratz.github.io/01-Receipt-Calculator-App/',
+      'This app can be used by cashiers to add products, their price and quantity to checkout and print a receipt for the user\nTechnologies: HTML, Tailwind CSS, JavaScript',
+    link: 'https://github.com/gurkiratz/receipt-calculator',
+    demo: 'https://gurkiratz.github.io/receipt-calculator/',
   },
 ]
 
@@ -69,7 +93,7 @@ function ProjectCard({ project }) {
           {project.title}
         </a>
       </div>
-      <p className="text-[1rem] leading-normal">{project.description}</p>
+      <p className="text-[1rem] leading-normal whitespace-pre-line">{project.description}</p>
       <div>
         <a
           href={project.demo}
