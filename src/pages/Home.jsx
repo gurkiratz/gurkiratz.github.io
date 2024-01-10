@@ -19,7 +19,7 @@ export default function Home() {
           <A href="https://github.com/gurkiratz" target="_blank">
             Gurkirat
           </A>
-          , a first-year Computer Science student at 🎓
+          , a Computer Science student at 🎓
           <a
             href="https://humber.ca/"
             target="_blank"
@@ -27,7 +27,7 @@ export default function Home() {
           >
             Humber College, Toronto
           </a>{' '}
-          starting in Sept, 2023.
+          graduating in April, 2026.
         </p>
         <p>
           <span className="hover:underline">I'm 20 years old </span> and I've
