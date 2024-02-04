@@ -43,7 +43,7 @@ export default function Home() {
           </span>{' '}
           Though constantly changing, my focus right now is{' '}
           <span className="hover:underline">
-            React.js, Node, Express, Serverless and Next.js.{' '}
+            React.js, Node, Express, Next.js and Docker.{' '}
           </span>{' '}
           <span className="group hover:underline">
             Besides, I also have a secret affair with{' '}

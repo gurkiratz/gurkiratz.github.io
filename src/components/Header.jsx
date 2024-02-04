@@ -10,12 +10,17 @@ export default function Header() {
     setisOpen((prev) => !prev)
   }
 
-  const menuList = ['Home', 'Projects', 'Articles', 'Contact']
+  const menuList = [
+    { label: 'Home', path: '/' },
+    { label: 'Projects', path: '/projects' },
+    { label: 'Articles', path: '/articles' },
+    { label: 'Contact', path: '/contact' },
+  ]
 
-  const renderedMenuList = menuList.map((el, i) => (
+  const renderedMenuList = menuList.map((link) => (
     <NavLink
-      key={i}
-      to={el === 'Home' ? '/' : el.toLowerCase()}
+      key={link.label}
+      to={link.path}
       className={({ isActive }) =>
         isActive ? 'text-gray-900' : 'md:text-gray-500'
       }
@@ -24,7 +29,7 @@ export default function Header() {
         onClick={() => setisOpen(false)}
         className="text-normal block mb-5 md:mb-0 font-bold md:font-semibold md:text-[12px] md:uppercase cursor-pointer  md:tracking-wider hover:text-gray-900"
       >
-        {el}
+        {link.label}
       </span>
     </NavLink>
   ))
