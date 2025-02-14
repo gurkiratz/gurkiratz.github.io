@@ -1,6 +1,8 @@
-## LIVE - https://gurkiratz.github.io
+# LIVE - https://gurkiratz.github.io
 
-# Timeline
+### Inspiration - https://adamwathan.me/
+
+### Timeline
 
 > **Mar 31, 2023**
 
